@@ -19,3 +19,10 @@ Per mantenere uno storico (log) pulito e leggibile da chiunque senza dover esami
 - **Come risolvere**: Esegui `git pull`, analizza i file in conflitto, rimuovi i marker di git, aggiungi le modifiche consolidate con `git add`, finisci il merge con un commit e riprova a pushare.
 
 Queste regole sono adottate nativamente anche dall'Assistente AI del progetto, il quale si auto-sincronizzerà prima di ogni push per evitare sovrascritture autonome del lavoro umano.
+
+## 4. Flusso tramite Branch e Pull Request (PR)
+Per garantire stabilità e la corretta sincronizzazione del progetto:
+- **Nessun push diretto**: È vivamente sconsigliato effettuare push diretti sul branch `main` (tranne che per fix critici immediati pre-approvati).
+- **Nuovi Branch**: Elabora ogni funzionalità o risoluzione in un branch dedicato (es. `feature/dashboard-ui` o `fix/login-bug`).
+- **Apertura PR**: Al termine dei lavori, apri sempre una **Pull Request** verso `main`. Questa procedura è obbligatoria, *altrimenti le modifiche e le eventuali pipeline non si sincronizzano correttamente*.
+- **Code Review**: Approva la PR, risolvi eventuali conflitti tramite `rebase` o merge, e solo alla fine porta il codice in `main`.
