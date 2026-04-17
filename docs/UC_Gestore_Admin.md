@@ -2,6 +2,11 @@
 
 L'amministratore (Gestore PA d'Ente) supervisiona il network. Il suo scopo non è produrre o consumare energia termica, ma ottimizzare l'infrastruttura, configurare logiche contrattuali per gli incentivi ed educare i cittadini al consumo responsabile.
 
+## UC-G00: Navigazione Principale (Sidebar Admin)
+*   **Trigger:** L'amministratore entra nella piattaforma e vuole accedere ai vari moduli.
+*   **Azione Utente:** Espande e interagisce con la sidebar dedicata (Dashboard, Gestione CER, Comunicazioni, Premi, Impostazioni).
+*   **UX Flow & Risultato:** La sidebar ha un design compatto e collassabile. Il click su una voce cambia istantaneamente la vista principale (SPA navigation). La voce attiva è evidenziata con il colore principale istituzionale.
+
 ## UC-G01: Switch Multi-CER (Gestione Multi-Tenant)
 *   **Trigger:** L'amministratore apre la web app.
 *   **Azione Utente:** Clicca sul dropdown posizionato nella Topbar (header glassmorphism). Seleziona la comunità dal menù a tendina (es. da "CER Centro" a "CER Area Industriale").
@@ -25,3 +30,8 @@ L'amministratore (Gestore PA d'Ente) supervisiona il network. Il suo scopo non �
 ## UC-G05: Consolidamento GSE (Sign-Off)
 *   **Trigger:** I dati mensili GSE sono incrociati.
 *   **UX Flow & Risultato:** Usa un modale sicuro con checkmark visivi ("Tutti i nodi approvati"). Genera istantaneamente file report PDF.
+
+## UC-G06: Gestione Membri (Comunità)
+*   **Trigger:** L'amministratore vuole visionare l'anagrafica e lo stato d'immissione dei membri.
+*   **Azione Utente:** Naviga in "Comunità" dalla sidebar.
+*   **UX Flow & Risultato:** Viene mostrata una lista ricercabile o una tabella di tutti i membri associati alla CER (Producer, Consumer, Prosumer) con le relative informazioni anagrafiche e lo stato del loro impianto o contatore. Cliccando su un membro si può vedere il dettaglio della singola fornitura.
