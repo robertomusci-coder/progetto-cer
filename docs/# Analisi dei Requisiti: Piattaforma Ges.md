@@ -1,35 +1,28 @@
-# Analisi dei Requisiti: Piattaforma Brilla (Lato Ente)
+# Analisi dei Requisiti: Piattaforma Brilla (Multi-CER)
 
-La piattaforma Brilla è un portale "SaaS-like" di altissimo profilo, progettato per accompagnare gli Enti Pubblici nella gestione operativa delle CER. L'interfaccia non deve sembrare un gestionale burocratico, ma un prodotto tech moderno e fluido. In questa configurazione specifica, il sistema gestisce un ecosistema di 5 nodi (1 Produttore e 4 Consumatori).
+La piattaforma Brilla è un portale "SaaS-like" di altissimo profilo. Oltre a essere il centro nevralgico degli Enti Pubblici, offre un accesso differenziato per i singoli utenti (produttori e consumatori).
 
-## 1. Requisiti Funzionali Core
-**Monitoraggio Energetico Giornaliero**: 
+## 1. Architettura degli Attori e Ripartizione Incentivi
+La piattaforma gestisce tre tipologie di utenti finali, differenziati sostanzialmente dalla modalità con cui contribuiscono alla CER e ricevono gli incentivi:
+*   **Gestore PA / Admin:** Ha visibilità unificata sui dati di *tutti* gli utenti. Ha permessi "God Mode" per configurare le quote di ripartizione e può **gestire più CER contemporaneamente** dal medesimo account.
+*   **Producer (Produttore Puro):** Utente che immette energia in rete senza consumarla direttamente. L'incentivo è ripartito calcolando la sola energia immessa e virtualmente condivisa.
+*   **Consumer (Consumatore Puro):** Utente che preleva energia. La sua agevolazione in bolletta e il riparto degli incentivi si basano unicamente sul suo "sincronismo" (quanto ottimizza i consumi nelle ore in cui la CER produce energia). 
+*   **Prosumer:** Produce, consuma e accumula. L'incentivo deriva primariamente dal risparmio diretto in bolletta (autoconsumo fisico) e, secondariamente, dall'energia condivisa in rete. 
+
+## 2. Requisiti Funzionali Core
+**Visualizzazione a Tenuta Stagna (Singolo Utente):**
 > [!NOTE] 
-> *UX Guideline*: Visualizzazione dei dati tramite "Bento Box" dashboard. Non visualizzare tabelle grezze, ma "Big Numbers" (tipografia Outfit) con trend positivi/negativi (frecce verdi illuminate/rosse).
+> *UX Guideline*: Il singolo membro (Consumer/Prosumer) deve avere visibilità esclusiva sui **propri consumi** e sull'andamento *generico* (anonimizzato) della CER nel suo complesso, senza poter leggere i dati dei vicini.
 
-**Gestione Nodi (1+4)**: 
+**Configurabilità Totale Incentivi:**
 > [!NOTE] 
-> *UX Guideline*: Rappresentazione visiva dei nodi tramite un mini-grafo interattivo o status card con led luminosi (Neon Glow) per indicare al volo chi è online o offline.
+> *UX Guideline*: Il Gestore avrà un modulo (wizard) basato su *sliders* per stabilire i pesi percentuali del cashback (es. 40% a chi produce, 60% a chi consuma e si sincronizza).
 
-**Integrazione Dati Ufficiali**: 
+**Gamification e Sostenibilità:**
 > [!NOTE] 
-> *UX Guideline*: Durante il caricamento dati GSE occorre bloccare le chiamate asincrone usando Skeleton Loaders e messaggistica contestuale. Non va mai interrotta l'esperienza dell'utente.
+> *UX Guideline*: Implementazione di "Punti Sostenibilità" per la cittadinanza. Gamification con classifiche interne tra i membri (Consumer e Prosumer) per promuovere la competizione virtuosa verso sconti extra per chi consuma nelle ore di picco. 
 
-**Candidatura Digitale**: 
-> [!NOTE] 
-> *UX Guideline*: Form wizard multi-step con micro-interazioni sui bottoni ("continue" diventa una check verde animata on-success).
-
-**Rendicontazione Inclusiva**: 
-> [!NOTE] 
-> *UX Guideline*: Esportazioni in PDF che ereditano lo stile UI della dashboard. Chart puliti anche su sfondo bianco per una stampa senza spreco d'inchiostro (Print-ready mode).
-
-## 2. Requisiti Tecnologici & Esperienza Utente
-**Digital Twin della CER**: Replica digitale in tempo reale.
-> [!TIP]
-> *UI execution*: Quando si seleziona il digital twin, usare pannelli laterali "off-canvas" in vetro satinato (Glassmorphism, backdrop-blur) che scorrono morbidamente fluidificati da funzioni spring/framermotion.
-
-**Sicurezza PA-Grade**: Protezione dati con crittografia. La percezione della sicurezza deve riflettersi in UI tramite iconografia rassicurante e modali criptici che richiedono interazioni intenzionali (Hold to confirm).
-
-**Motore di Analisi Dati**: Algoritmi per trovare inefficienze.
-> [!TIP]
-> *UI execution*: Le anomalie devono "galleggiare" in cima alla view in "Alert Box" color ambra vibrante, con un effetto "pulse" attrattivo che indica l'urgenza.
+## 3. Requisiti Tecnologici & Esperienza Utente
+**Energy Graph e CO2:** Un nodo visivo interattivo in Dashboard misurerà sia il flusso energetico che la metrica ambientale "kg di CO2 evitata".
+**Sicurezza PA-Grade:** Dati criptati e autenticazione a due fattori.
+**Multi-Tenant Engine:** Capacità tecnologica di separare i database tra molteplici Comunità Energetiche (CER 1, CER 2) garantendo all'Amministratore un menù a tendina globale per passare da una all'altra.
