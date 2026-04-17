@@ -30,3 +30,8 @@ L'amministratore (Gestore PA d'Ente) supervisiona il network. Il suo scopo non �
 ## UC-G05: Consolidamento GSE (Sign-Off)
 *   **Trigger:** I dati mensili GSE sono incrociati.
 *   **UX Flow & Risultato:** Usa un modale sicuro con checkmark visivi ("Tutti i nodi approvati"). Genera istantaneamente file report PDF.
+
+## UC-G06: Gestione Membri (Comunità)
+*   **Trigger:** L'amministratore vuole visionare l'anagrafica e lo stato d'immissione dei membri.
+*   **Azione Utente:** Naviga in "Comunità" dalla sidebar.
+*   **UX Flow & Risultato:** Viene mostrata una lista ricercabile o una tabella di tutti i membri associati alla CER (Producer, Consumer, Prosumer) con le relative informazioni anagrafiche e lo stato del loro impianto o contatore. Cliccando su un membro si può vedere il dettaglio della singola fornitura.

@@ -50,7 +50,7 @@ export default function Login() {
            </div>
            
            <div className="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-zinc-100">
-             <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); window.location.href = '/dashboard'; }}>
+             <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); window.location.href = '/admin'; }}>
                
                <div className="space-y-2">
                  <Label htmlFor="email" className="text-zinc-700 font-medium">Email</Label>
@@ -86,7 +86,7 @@ export default function Login() {
                </div>
                
                <Button className="w-full bg-zinc-900 hover:bg-zinc-800 text-white shadow-md transition-all mt-6 group h-11" size="lg">
-                 Entra nella Dashboard
+                 Accedi
                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                </Button>
                
